@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size:xx-large;
+            margin: 10px;
+        }
+       
+        }
+        #AreaImagen {
+            border-style:solid;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .container {
+            width: 1112px;
+            height: 1600px;
+            overflow: hidden;
+            margin: 0px;
+            position: relative;
+        }
+        .container > .crop {
+            position:absolute;
+            left: 0%;
+            right: 100%;
+            top: 0%;
+            margin: 0px;
+
+            bottom: 10%;
+            min-height: auto;
+            min-width: 100%;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h1>Pregunta 172</h1>
+
+    <div id="contImagen" class="container">
+        <img class="crop" src="./Imagenes/q172.jpg" />
+    </div>
+
+    <p id="resul"></p>
+    <p id="exp"></p>
+
+    <p><div id="validate"></div> </p>
+
+    <button onclick="respuestaA()">Respuesta A</button>
+    <button onclick="respuestaB()">Respuesta B</button>
+    <button onclick="respuestaC()">Respuesta C</button>
+    <button onclick="respuestaD()">Respuesta D</button>
+    <button onclick="respuestaE()">Respuesta E</button>
+
+    <script>
+        var contenedor = document.getElementById("contImagen");
+        var parrafo = document.getElementById("resul");
+        var explicacion = document.getElementById("exp");
+        var showVehicle = document.getElementById("validate");
+
+
+        var myApplication = myApplication || {};
+        myApplication.Vehicle = function (displayControl, color, seatCount, transType, wheelCount) {
+            this.color = color;
+            this.NumberOfSeats = seatCount;
+            this.TransmissionType = transType;
+            this.NumberOfWheels = wheelCount;
+            this.showVehicle = document.getElementById("validate");
+        }
+        myApplication.Vehicle.prototype = {
+            Describe: function () {
+                var valuesToDisplay = '';
+                for (var property in this) {
+                    if (typeof (this[property]) === 'string') {
+                        valuesToDisplay += 'vehicle ' + property + ' is ' + this[property] + '<br />';
+                    }
+                    else if (typeof (this[property]) === 'number') {
+                        if (this[property] < 4) {
+                            valuesToDisplay += 'Stay Safe!' + '<br />';
+                        }
+                        else if (this[property] >= 10) {
+                            valuesToDisplay += 'Big machine!' + '<br />';
+
+                        }
+                    }
+                }
+                showVehicle.innerHTML = valuesToDisplay;
+            }
+        }
+
+       
+
+        var respuestaA = () => {
+
+            contenedor.style.height = "1600px";
+            parrafo.innerText = "     Respuesta Incorrecta";
+            parrafo.style.color = "red";
+            parrafo.style.fontWeight = "700";
+            explicacion.innerText = "var mySportsCar = new myapplication.Vehicle('display', 'manual', 4, 'silver', 4)";
+
+            
+            var mySportsCar = new myApplication.Vehicle('display', 'manual', 4, 'silver', 4)
+            mySportsCar.Describe();
+
+            
+        }
+        var respuestaB = () => {
+            explicacion.innerText = "var mySportsCar = new myapplication.Vehicle('display', 'silver', 10, 'manual', 2)";
+            contenedor.style.height = "1600px";
+            parrafo.innerText = "Respuesta Incorrecta";
+            parrafo.style.color = "red";
+            parrafo.style.fontWeight = "700";
+            var mySportsCar = new myApplication.Vehicle('display', 'silver', 10, 'manual', 2);
+            mySportsCar.Describe();
+            
+        }
+        var respuestaC = () => {
+            explicacion.innerText = "var mySportsCar = new myapplication.Vehicle('display', 'silver', 2, 'manual', 16)";
+            contenedor.style.height = "2023px";
+            parrafo.innerText = "Respuesta Correcta";
+            parrafo.style.color = "Blue";
+            parrafo.style.fontWeight = "700";
+
+
+            var mySportsCar = new myApplication.Vehicle('display', 'silver', 2, 'manual', 16);
+            mySportsCar.Describe();
+            
+        }
+        var respuestaD = () => {
+            explicacion.innerText = "var mySportsCar = new myapplication.Vehicle('display', 'blue', 2, 'manual', 2)";
+            contenedor.style.height = "850px";
+            parrafo.innerText = "Respuesta Incorrecta";
+            parrafo.style.color = "red";
+            parrafo.style.fontWeight = "700";
+            var mySportsCar = new myApplication.Vehicle('display', 'blue', 2, 'manual', 2);
+            mySportsCar.Describe();
+            
+        }
+
+        var respuestaE = () => {
+            explicacion.innerText = "var mySportsCar = new myapplication.Vehicle('display', 'silver', 3, 'manual', 10)";
+            contenedor.style.height = "2023px";
+            parrafo.innerText = "Respuesta Correcta";
+            parrafo.style.color = "blue";
+            parrafo.style.fontWeight = "700";
+            var mySportsCar = new myApplication.Vehicle('display', 'silver', 3, 'manual', 10);
+            mySportsCar.Describe();
+            
+        }
+
+
+
+    </script>
+</body>
+</html>

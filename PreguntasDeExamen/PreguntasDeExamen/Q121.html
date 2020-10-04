@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family:  'Courier New';
+            font-size:xx-large;
+            margin: 10px;
+        }
+       
+        .container {
+            width: 1112px;
+            height: 940px;
+            overflow: hidden;
+            margin: 0px;
+            position: relative;
+        }
+            .container > .crop {
+                position: absolute;
+                left: 0%;
+                right: 100%;
+                top: 0%;
+                margin: 0px;
+                bottom: 10%;
+                min-height: auto;
+                /*min-width: 100%;*/
+            }
+       
+
+    </style>
+</head>
+<body>
+
+    <h1>Pregunta 121</h1>
+
+    <div id="contImagen" class="container">
+        <img class="crop" src="./Imagenes/q121.jpg" />
+    </div>
+
+
+    <p id="resul">
+    <p id="exp" style="display:none">
+        <strong>
+            $.ajax({<br />
+            &nbsp;&nbsp;&nbsp;url: "Services/WSAjax.asmx/GetPopulationCity?city='Boston'",<br />
+            &nbsp;&nbsp;&nbsp;dataType:"Text", type:"POST"
+        </strong><br />
+        )}<br /><br />
+        <strong> Incorrecta </strong> <br /><br />
+        Se le pasa el parametro en la url y no en el parametro data<br /><br /><br /><br />
+        <strong>
+            $.ajax({<br />
+            &nbsp;&nbsp;&nbsp;url: "Services/WSAjax.asmx/GetPopulationCity",<br />
+            &nbsp;&nbsp;&nbsp;dataType:"Text", type:"SEND", data:{city:"Boston"}
+        </strong><br />
+        )}<br /><br />
+        <strong> Incorrecta </strong> <br /><br />
+        Esta todo bien salvo el tipo que debe ser POST y no SEND<br /><br /><br /><br />
+
+        <strong>
+            $.ajax({<br />
+            &nbsp;&nbsp;&nbsp;url: "Services/WSAjax.asmx/GetPopulationCity?city='Boston'",<br />
+            &nbsp;&nbsp;&nbsp;dataType:"Text", type:"SEND"
+        </strong><br />
+        )}<br /><br />
+        <strong> Incorrecta </strong> <br /><br />
+        Igual que la respuesta A se le pasa el parametro en la url y no en el parametro data y ademas el tipo que debe ser POST y no SEND<br /><br /><br /><br />
+
+        <strong>
+            $.ajax({<br />
+            &nbsp;&nbsp;&nbsp;url: "Services/WSAjax.asmx/GetPopulationCity",<br />
+            &nbsp;&nbsp;&nbsp;dataType:"Text", type:"POST", data:{city:"Boston"}
+        </strong><br />
+        )}<br /><br />
+        <strong> Correcta </strong> <br /><br />
+        
+
+    </p>
+
+    <button onclick="respuesta()">Respuesta</button>
+
+
+    <script>
+        var contenedor = document.getElementById("contImagen");
+        var parrafo = document.getElementById("resul");
+        var explicacion = document.getElementById("exp");
+
+        var respuesta = () => {
+            explicacion.style.display = "inherit";
+            contenedor.style.height = "1340px";
+            parrafo.innerText = "     Respuesta correcta";
+            parrafo.style.color = "Blue";
+            parrafo.style.fontWeight = "700";
+        }
+
+    </script>
+</body>
+</html>

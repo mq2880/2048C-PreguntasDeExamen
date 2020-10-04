@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size:xx-large;
+            margin: 10px;
+        }
+       
+        }
+        #AreaImagen {
+            border-style:solid;
+            width: 100px;
+            height: 100px;
+        }
+        #validate {
+            border-style:solid;
+            width: 100px;
+            height: 100px;
+
+        }
+        .container {
+            width: 1112px;
+            height: 850px;
+            overflow: hidden;
+            margin: 0px;
+            position: relative;
+        }
+        .container > .crop {
+            position:absolute;
+            left: 0%;
+            right: 100%;
+            top: 0%;
+            margin: 0px;
+
+            bottom: 10%;
+            min-height: auto;
+            min-width: 100%;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <h1>Pregunta 19</h1>
+
+    <div id="contImagen" class="container">
+        <img class="crop" src="./Imagenes/q19.jpg" />
+    </div>
+
+    <p id="resul"></p>
+    <p id="exp">dd</p>
+
+    <p style="display:inline ">content <div id="validate">div</div> more content</p>
+
+    <button onclick="respuestaA()">Respuesta A</button>
+    <button onclick="respuestaB()">Respuesta B</button>
+    <button onclick="respuestaC()">Respuesta C</button>
+    <button onclick="respuestaD()">Respuesta D</button>
+
+    <script>
+        var contenedor = document.getElementById("contImagen");
+        var parrafo = document.getElementById("resul");
+        var explicacion = document.getElementById("exp");
+            
+        var respuestaA = () => {
+            explicacion.innerText= "display.Inline muestra el elementos en la misma linea como un spam";
+            contenedor.style.height = "1378px";
+            parrafo.innerText = "     Respuesta correcta";
+            parrafo.style.color = "Blue";
+            parrafo.style.fontWeight = "700";
+            
+            
+            document.getElementById("validate").style.display = "inline";
+        }
+        var respuestaB = () => {
+            explicacion.innerText = "margin solo afecta a los margenes del elemento";
+            contenedor.style.height = "850px";
+            parrafo.innerText="Respuesta Incorrecta";
+            parrafo.style.color="red";
+            parrafo.style.fontWeight="700";
+            document.getElementById("validate").style.display = "";
+            document.getElementById("validate").style.margin = "0";
+
+        }
+        var respuestaC = () => {
+            explicacion.innerText = "padding solo afecta al relleno de los lados del elemento";
+            contenedor.style.height = "850px";
+            parrafo.innerText="Respuesta Incorrecta";
+            parrafo.style.color="red";
+            parrafo.style.fontWeight="700";
+            document.getElementById("validate").style.display = "";
+            document.getElementById("validate").style.padding = "0";
+            document.getElementById("validate").style.padding = "0";
+        }
+        var respuestaD = () => {
+            explicacion.innerText = "display.block Muestra un elemento como un elemento de bloque. Comienza en una nueva línea y ocupa todo el ancho";
+            contenedor.style.height = "850px";
+            parrafo.innerText="Respuesta Incorrecta";
+            parrafo.style.color="red";
+            parrafo.style.fontWeight="700";
+            document.getElementById("validate").style.display = "block";
+        }
+    </script>
+</body>
+</html>

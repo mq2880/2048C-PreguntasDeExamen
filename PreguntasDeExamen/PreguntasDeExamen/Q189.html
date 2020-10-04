@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: courier;
+            font-size:x-large;
+            margin: 10px;
+        }
+       
+        .container {
+            width: 1112px;
+            height: 1567px;
+            overflow: hidden;
+            margin: 0px;
+            position: relative;
+        }
+            .container > .crop {
+                position: absolute;
+                left: 0%;
+                right: 100%;
+                top: 0%;
+                margin: 0px;
+                bottom: 10%;
+                min-height:600px;
+            }
+       
+
+    </style>
+</head>
+<body>
+
+    <h1>Pregunta 189</h1>
+
+    <div id="contImagen" class="container">
+        <img class="crop" src="./Imagenes/q189.jpg" />
+    </div>
+
+
+
+    <p id="exp" style="display:none">
+
+        -<strong>A</strong> Incorrecta Cambia el valor de min en función de la longitud del element y min es fijo y max hace algo raro<br /><br />
+
+        -<strong>B</strong> Incorrecta Falta el parametro que contiene el dato<br /><br />
+        
+        -<strong>C</strong> Incorrecta Faltan todos los parametros<br /><br />
+        
+        -<strong>D</strong> Correcta <br /><br /><br />
+
+
+    </p>
+
+    <button onclick="respuesta()">Respuesta</button>
+
+
+    <script>
+        var contenedor = document.getElementById("contImagen");
+        var parrafo = document.getElementById("resul");
+        var explicacion = document.getElementById("exp");
+
+        var respuesta = () => {
+            explicacion.style.display = "inherit";
+            contenedor.style.height = "1822px";
+            parrafo.innerText = "     Respuesta correcta";
+            parrafo.style.color = "Blue";
+            parrafo.style.fontWeight = "700";
+        }
+
+    </script>
+</body>
+</html>

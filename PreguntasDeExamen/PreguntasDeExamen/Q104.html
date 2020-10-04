@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size:xx-large;
+            margin: 10px;
+        }
+       
+        .container {
+            width: 1112px;
+            height: 1200px;
+            overflow: hidden;
+            margin: 0px;
+            position: relative;
+        }
+            .container > .crop {
+                position: absolute;
+                left: 0%;
+                right: 100%;
+                top: 0%;
+                margin: 0px;
+                bottom: 10%;
+                min-height: auto;
+                /*min-width: 100%;*/
+            }
+       
+
+    </style>
+</head>
+<body>
+
+    <h1>Pregunta 104</h1>
+
+    <div id="contImagen" class="container">
+        <img class="crop" src="./Imagenes/q104.jpg" />
+    </div>
+
+
+    <p id="resul">
+    <p id="exp" style="display:none">
+
+-<strong> text-decoration: wavy;</strong>Incorrecta  Especifica la decoracion añadida al texto y wavy no existe con esta abreviatura<br />
+          text-decoration: text-decoration-line text-decoration-color text-decoration-style|initial|inherit;<br /><br />
+
+-<strong> text-decoration-style: wavy;</strong>Incorrecta dibuja un subrayado en forma de onda<br /><br />
+
+-<strong> text-shadow:blue 1px 1px 1px;</strong> Correcta añade sombra al texto <br />
+          text-shadow: h-shadow v-shadow blur-radius color. el color puede ponerse al principio y funciona<br /><br />
+
+-<strong> text-shadow:blue 1px 1px 1px 2px;</strong> Incorrecta no se ha especificado el color<br /><br /><br />
+
+
+-<strong> hyphens:auto;</strong>Correcta  La propiedad define si se permite la separación de sílabas dentro de una línea de texto.<br />
+          hyphens: none|manual|auto|initial|inherit;<br /><br />
+
+-<strong> break-after: auto;</strong>Incorrecta especifica si se debe producir un salto de página, un salto de columna o un salto de región después del elemento especificado.<br />
+          break-after: auto|all|always|avoid|avoid-column|avoid-page|avoid-region|column|left|page|recto|region|right|verso|initial|inherit<br /><br />
+
+-<strong> break-inside: auto;</strong>Incorrecta especifica si se debe producir un salto de página, un salto de columna o un salto de región dentro del elemento especificado 
+          break-inside: auto|all|always|avoid|avoid-column|avoid-page|avoid-region|column|left|page|recto|region|right|verso|initial|inherit; <br /><br /> 
+
+-<strong> text-decoration: solid;</strong> Incorrecta solid no es un parametro valido<br />
+
+
+    </p>
+
+    <button onclick="respuesta()">Respuesta</button>
+
+
+    <script>
+        var contenedor = document.getElementById("contImagen");
+        var parrafo = document.getElementById("resul");
+        var explicacion = document.getElementById("exp");
+
+        var respuesta = () => {
+            explicacion.style.display = "inherit";
+            contenedor.style.height = "2500px";
+            parrafo.innerText = "     Respuesta correcta";
+            parrafo.style.color = "Blue";
+            parrafo.style.fontWeight = "700";
+        }
+
+    </script>
+</body>
+</html>

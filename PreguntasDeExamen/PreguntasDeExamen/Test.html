@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="jquery-3.5.1.js"></script>
+    <style>
+        /*   .container > ul {
+            border:1px solid black;
+        }
+            no funciona no pinta nada*/  
+       
+    </style>
+</head>
+<body>
+    <div id="container">
+        <!--<ul style="border: 1px solid black">--> Funciona
+        <ul >
+            <li>First List Item
+                <ul>
+                    <li>Child List Item</li>
+                </ul>
+            </li>
+            <li>Second list item</li>
+            <li>Third list item</li>
+            <li>Fourth list item</li>
+        </ul>
+    </div>
+    <script>
+        //("ul:first-of-type").css("border", "1px solid black") No hace nada
+        //$("div#container >ul").css("border", "1px solid black") No hace nada
+    </script>
+
+</body>
+</html>

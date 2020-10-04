@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: courier;
+            font-size:x-large;
+            margin: 10px;
+        }
+       
+        .container {
+            width: 1112px;
+            height: 1200px;
+            overflow: hidden;
+            margin: 0px;
+            position: relative;
+        }
+            .container > .crop {
+                position: absolute;
+                left: 0%;
+                right: 100%;
+                top: 0%;
+                margin: 0px;
+                bottom: 10%;
+                min-height: auto;
+                /*min-width: 100%;*/
+            }
+      </style>
+</head>
+<body>
+
+    <h1>Pregunta 138</h1>
+
+    <div id="contImagen" class="container">
+        <img class="crop" src="./Imagenes/q138.jpg" />
+    </div>
+
+
+    <p id="exp" style="display:none">
+
+        -<strong> display:inline;</strong>Incorrecta  Muestra un elemento como un elemento en línea (como span). Cualquier propiedad de altura y ancho no tendrá efecto<br />
+        display: value;<br /><br />
+
+        -<strong> box-sizing:border-box;</strong>Correcta La propiedad define cómo se calculan el ancho y el alto de un elemento. Con border-box las propiedades de ancho y alto (y propiedades mínimas / máximas) incluyen contenido, relleno y borde<br />
+        box-sizing: content-box|border-box|initial|inherit;<br /><br />
+
+        -<strong> box-shadow:10px 10px 10x #f00;</strong> Incorrecta esta propiedad adjunta una o más sombras a un elemento y el ejemplo no lleva sombras<br />
+        box-shadow: none|h-offset v-offset blur spread color |inset|initial|inherit;<br /><br />
+
+        -<strong> box-shadow:4px 4px 4x #f00;</strong> Incorrecta igual que la anterior<br /><br /><br />
+
+
+        -<strong> border-radius:10px;</strong>Correcta  La propiedad define el radio de las esquinas del elemento<br />
+        border-radius: 1-4 length|% / 1-4 length|%|initial|inherit;hyphens: none|manual|auto|initial|inherit;<br /><br />
+
+        -<strong> border-spacing:10px;</strong>Incorrecta establece la distancia entre los bordes de las celdas adyacentes<br />
+        border-spacing: length|initial|inherit;<br /><br />
+
+        -<strong> border-bottom-style:outlet;</strong>Incorrecta establece el estilo del borde inferior de un elemento.<br />
+        border-bottom-style: none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset|initial|inherit;<br /><br />
+
+        -<strong> box-decoration-break:slice;</strong> Incorrecta especifica cómo se aplica el fondo, el relleno, el borde, la imagen del borde, la sombra del cuadro, el margen y la ruta de recorte de un elemento cuando el cuadro del elemento está fragmentado.<br />
+        box-decoration-break: slice|clone|initial|inherit|unset;
+
+    </p>
+
+    <button onclick="respuesta()">Respuesta</button>
+
+
+    <script>
+        var contenedor = document.getElementById("contImagen");
+        var parrafo = document.getElementById("resul");
+        var explicacion = document.getElementById("exp");
+
+        var respuesta = () => {
+            explicacion.style.display = "inherit";
+            contenedor.style.height = "2780px";
+            parrafo.innerText = "     Respuesta correcta";
+            parrafo.style.color = "Blue";
+            parrafo.style.fontWeight = "700";
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size:xx-large;
+            margin: 10px;
+        }
+       
+        .container {
+            width: 1112px;
+            height: 1282px;
+            overflow: hidden;
+            margin: 0px;
+            position: relative;
+        }
+        .container > .crop {
+            position:absolute;
+            left: 0%;
+            right: 100%;
+            top: 0%;
+            margin: 0px;
+
+            bottom: 10%;
+            min-height: auto;
+            min-width: 100%;
+        }
+       
+
+    </style>
+</head>
+<body>
+
+    <h1>Pregunta 36</h1>
+
+    <div id="contImagen" class="container">
+        <img class="crop" src="./Imagenes/q36.jpg" />
+    </div>
+    
+
+    <p id="resul"></p>
+    <p>
+        <xmp id="exp" style="display:none" ">
+            - En el primer bloque como el menu es de 200px seria la primera opcion 
+            ya que la tercera hace referencia a las pantallas minimo de 480px.
+            
+            - En el segundo bloque como el menu es de 480 de ancho seria la tercera 
+            opcion para que se pudiera ver
+
+            No existe el tipo Size por tanto la segunda y la cuarta no funcionarian. 
+        </xmp>
+    </p>
+
+
+    <button onclick="respuesta()">Respuesta</button>
+   
+
+    <script>
+        var contenedor = document.getElementById("contImagen");
+        var parrafo = document.getElementById("resul");
+        var explicacion = document.getElementById("exp");
+
+        var respuesta = () => {
+            explicacion.style.display = "inherit";
+            contenedor.style.height = "2754px";
+            parrafo.innerText = "     Respuesta correcta";
+            parrafo.style.color = "Blue";
+            parrafo.style.fontWeight = "700";
+        }
+       
+    </script>
+</body>
+</html>

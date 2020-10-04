@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: courier;
+            font-size:x-large;
+            margin: 10px;
+        }
+       
+        .container {
+            width: 1112px;
+            height: 1050px;
+            overflow: hidden;
+            margin: 0px;
+            position: relative;
+        }
+            .container > .crop {
+                position: absolute;
+                left: 0%;
+                right: 100%;
+                top: 0%;
+                margin: 0px;
+                bottom: 10%;
+                min-height:600px;
+            }
+
+            div a:last-child ~ a{
+                background-color: yellow;
+            }
+       
+
+    </style>
+</head>
+<body>
+
+    <h1>Pregunta 291</h1>
+
+    <div id="contImagen" class="container">
+        <img class="crop" src="./Imagenes/q291.jpg" />
+    </div>
+
+    <nav id="mainmenu" class="page-nav" style="display:none">
+
+        <div id="navlist" class="containers">
+            <a href="index.html">Home</a>
+            <a href="register.html">Register</a>
+        </div>
+    </nav>
+    <xmp id="resp" style="display:none">
+        div a:last-child ~ a{
+            background-color: yellow;
+        }
+        Colocaria el menu register.html a amarillo
+    </xmp>
+    <button onclick="respuesta()">Respuesta</button>
+
+    <script>
+        var contenedor = document.getElementById("contImagen");
+        var resp = document.getElementById("resp");
+        var menu = document.getElementById("mainmenu");
+
+        var respuesta = () => {
+            contenedor.style.height = "1136px";
+            menu.style.display = "inherit";
+            resp.style.display = "inherit";
+        }
+
+    </script>
+</body>
+</html>
