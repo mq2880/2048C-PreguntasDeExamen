@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
     <title>Document</title>
     <style>
         body {
@@ -10,7 +11,11 @@
             font-size:xx-large;
             margin: 10px;
         }
-       
+        button {
+            font-size: xx-large;
+            width:500px;
+            text-align:left;
+        }
         .container {
             width: 1112px;
             height: 1200px;
@@ -28,8 +33,8 @@
                 min-height: auto;
                 /*min-width: 100%;*/
             }
-       
 
+      
     </style>
 </head>
 <body>
@@ -40,51 +45,118 @@
         <img class="crop" src="./Imagenes/q104.jpg" />
     </div>
 
+    <p id="hello" style="font-weight:900">Hello</p>
+
+    <p id="relleno">
+        Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del
+        texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más
+        o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí".
+        Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas
+        web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado
+        muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado
+        a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y
+        cosas por el estilo).
+    </p>
+
+    <button onclick="respuesta1()">text-decoration:wavy</button><br />
+    <button onclick="respuesta2()">text-decoration-style:wavy</button><br />
+    <button onclick="respuesta3()">text-shadow:blue 1px 1px 1px</button><br />
+    <button onclick="respuesta4()">text-shadow:blue 1px 1px 1px 2px</button><br />
+    <button onclick="respuesta5()">hyphens:auto</button><br />
+    <button onclick="respuesta6()">break-after:auto</button><br />
+    <button onclick="respuesta7()">break-inside:auto</button><br />
+    <button onclick="respuesta8()">text-decoration:solid</button><br />
 
     <p id="resul">
+
     <p id="exp" style="display:none">
-
--<strong> text-decoration: wavy;</strong>Incorrecta  Especifica la decoracion añadida al texto y wavy no existe con esta abreviatura<br />
-          text-decoration: text-decoration-line text-decoration-color text-decoration-style|initial|inherit;<br /><br />
-
--<strong> text-decoration-style: wavy;</strong>Incorrecta dibuja un subrayado en forma de onda<br /><br />
-
--<strong> text-shadow:blue 1px 1px 1px;</strong> Correcta añade sombra al texto <br />
-          text-shadow: h-shadow v-shadow blur-radius color. el color puede ponerse al principio y funciona<br /><br />
-
--<strong> text-shadow:blue 1px 1px 1px 2px;</strong> Incorrecta no se ha especificado el color<br /><br /><br />
-
-
--<strong> hyphens:auto;</strong>Correcta  La propiedad define si se permite la separación de sílabas dentro de una línea de texto.<br />
-          hyphens: none|manual|auto|initial|inherit;<br /><br />
-
--<strong> break-after: auto;</strong>Incorrecta especifica si se debe producir un salto de página, un salto de columna o un salto de región después del elemento especificado.<br />
-          break-after: auto|all|always|avoid|avoid-column|avoid-page|avoid-region|column|left|page|recto|region|right|verso|initial|inherit<br /><br />
-
--<strong> break-inside: auto;</strong>Incorrecta especifica si se debe producir un salto de página, un salto de columna o un salto de región dentro del elemento especificado 
-          break-inside: auto|all|always|avoid|avoid-column|avoid-page|avoid-region|column|left|page|recto|region|right|verso|initial|inherit; <br /><br /> 
-
--<strong> text-decoration: solid;</strong> Incorrecta solid no es un parametro valido<br />
-
 
     </p>
 
-    <button onclick="respuesta()">Respuesta</button>
+
 
 
     <script>
         var contenedor = document.getElementById("contImagen");
         var parrafo = document.getElementById("resul");
         var explicacion = document.getElementById("exp");
+        var relleno = document.getElementById("relleno");
 
-        var respuesta = () => {
+        var respuesta1 = () => {
+            explicacion.innerText = "Incorrecta: wavy no es un parametro valido. Especifica la decoracion añadida al texto y wavy no existe con esta abreviatura.\nLos valores validos son: \ntext-decoration: text-decoration-line text-decoration-color text-decoration-style|initial|inherit; ";
             explicacion.style.display = "inherit";
-            contenedor.style.height = "2500px";
-            parrafo.innerText = "     Respuesta correcta";
+            parrafo.innerText = "Respuesta";
             parrafo.style.color = "Blue";
             parrafo.style.fontWeight = "700";
+
+            $("p").css("text-decoration", "wavy");
         }
 
+        var respuesta2 = () => {
+            explicacion.innerText = "Incorrecta: debe ir acompañado de text-decoration-line para que pinte una linea arriba o abajo del texto.\nLos valores permitidos son:\ntext-decoration-style: solid|double|dotted|dashed|wavy|initial|inherit;";
+            explicacion.style.display = "inherit";
+            parrafo.innerText = "Respuesta";
+            parrafo.style.color = "Blue";
+            parrafo.style.fontWeight = "700";
+
+            $("p:#hello").css("text-decoration-style", "wavy");
+        }
+        var respuesta3 = () => {
+            explicacion.innerText = "Correcta: Los valores permitidos son:\ntext-shadow: h-shadow v-shadow blur-radius color|none|initial|inherit;\El color se puede poner al inicio tambien";
+            explicacion.style.display = "inherit";
+            parrafo.innerText = "Respuesta";
+            parrafo.style.color = "Blue";
+            parrafo.style.fontWeight = "700";
+            $("p:#hello").css("text-shadow", "inherit");
+            $("p:#hello").css("text-shadow", "blue 1px 1px 1px ");
+        }
+        var respuesta4 = () => {
+            explicacion.innerText = "Incorrecta: tiene un argumento de mas.\n Los valores permitidos son:\ntext-shadow: h-shadow v-shadow blur-radius color|none|initial|inherit;\El color se puede poner al inicio tambien";
+            explicacion.style.display = "inherit";
+            parrafo.innerText = "Respuesta";
+            parrafo.style.color = "Blue";
+            parrafo.style.fontWeight = "700";
+
+            $("p:#hello").css("text-shadow", "inherit");
+            $("p:#hello").css("text-shadow", "blue 1px 1px 1px 1px");
+        }
+        var respuesta5 = () => {
+            explicacion.innerText = "Correcta: La propiedad define si se permite la separación de sílabas dentro de una línea de texto.\n Los valores permitidos son:\nhyphens: none|manual|auto|initial|inherit;";
+            explicacion.style.display = "inherit";
+            parrafo.innerText = "Respuesta";
+            parrafo.style.color = "Blue";
+            parrafo.style.fontWeight = "700";
+
+            $("p:#relleno").css("hyphens", "auto");
+        }
+
+        var respuesta6 = () => {
+            explicacion.innerText = "Incorrecta: La propiedad especifica si se debe producir un salto de página, un salto de columna o un salto de región después del elemento especificado.\nLos valores permitidos son:\n break-after: auto|all|always|avoid|avoid-column|avoid-page|avoid-region|column|left|page|recto|region|right|verso|initial|inherit;";
+            explicacion.style.display = "inherit";
+            parrafo.innerText = "Respuesta";
+            parrafo.style.color = "Blue";
+            parrafo.style.fontWeight = "700";
+
+            $("p:#relleno").css("break-after", "auto");
+        }
+        var respuesta7 = () => {
+            explicacion.innerText = "Incorrecta: La propiedad especifica si se debe producir un salto de página, un salto de columna o un salto de región dentro del elemento especificado\n Los valores permitidos son:\nbreak-inside: auto|all|always|avoid|avoid-column|avoid-page|avoid-region|column|left|page|recto|region|right|verso|initial|inherit; ";
+            explicacion.style.display = "inherit";
+            parrafo.innerText = "Respuesta";
+            parrafo.style.color = "Blue";
+            parrafo.style.fontWeight = "700";
+
+            $("p:#relleno").css("break-inside", "auto");
+        }
+        var respuesta8 = () => {
+            explicacion.innerText = "Incorrecta: solid no es un parametro valido. Especifica la decoracion añadida al texto y wavy no existe con esta abreviatura.\nLos valores validos son: \ntext-decoration: text-decoration-line text-decoration-color text-decoration-style|initial|inherit; ";
+            explicacion.style.display = "inherit";
+            parrafo.innerText = "Respuesta";
+            parrafo.style.color = "Blue";
+            parrafo.style.fontWeight = "700";
+
+            $("p:#relleno").css("text-decoration", "solid");
+        }
     </script>
 </body>
 </html>

@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
     <title>Document</title>
     <style>
         body {
-            font-family: courier;
-            font-size:x-large;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: x-large;
             margin: 10px;
         }
-       
+
+        button {
+            font-size: xx-large;
+            text-align: left;
+        }
+
         .container {
             width: 1112px;
             height: 1200px;
@@ -18,17 +24,21 @@
             margin: 0px;
             position: relative;
         }
-            .container > .crop {
-                position: absolute;
-                left: 0%;
-                right: 100%;
-                top: 0%;
-                margin: 0px;
-                bottom: 10%;
-                min-height: auto;
-                /*min-width: 100%;*/
-            }
-      </style>
+
+        .container > .crop {
+            position: absolute;
+            left: 0%;
+            right: 100%;
+            top: 0%;
+            margin: 0px;
+            bottom: 10%;
+            min-height: auto;
+            /*min-width: 100%;*/
+        }
+        #hello {
+            border:solid;
+        }
+    </style>
 </head>
 <body>
 
@@ -38,49 +48,136 @@
         <img class="crop" src="./Imagenes/q138.jpg" />
     </div>
 
+    <p id="hello" style="font-weight:900">Hello</p>
 
-    <p id="exp" style="display:none">
+    <form action="respuesta()" name="formulario">
+        <p>Selecciona el primer elemento:</p>
+        <input type="radio" id="respuesta1" name="opcion1" value="1" checked>
+        <label for="respuesta1">display:inline</label><br>
 
-        -<strong> display:inline;</strong>Incorrecta  Muestra un elemento como un elemento en línea (como span). Cualquier propiedad de altura y ancho no tendrá efecto<br />
-        display: value;<br /><br />
-
-        -<strong> box-sizing:border-box;</strong>Correcta La propiedad define cómo se calculan el ancho y el alto de un elemento. Con border-box las propiedades de ancho y alto (y propiedades mínimas / máximas) incluyen contenido, relleno y borde<br />
-        box-sizing: content-box|border-box|initial|inherit;<br /><br />
-
-        -<strong> box-shadow:10px 10px 10x #f00;</strong> Incorrecta esta propiedad adjunta una o más sombras a un elemento y el ejemplo no lleva sombras<br />
-        box-shadow: none|h-offset v-offset blur spread color |inset|initial|inherit;<br /><br />
-
-        -<strong> box-shadow:4px 4px 4x #f00;</strong> Incorrecta igual que la anterior<br /><br /><br />
+        <input type="radio" id="respuesta2" name="opcion1" value="2">
+        <label for="respuesta1">box-sizing:border-box</label><br>
 
 
-        -<strong> border-radius:10px;</strong>Correcta  La propiedad define el radio de las esquinas del elemento<br />
-        border-radius: 1-4 length|% / 1-4 length|%|initial|inherit;hyphens: none|manual|auto|initial|inherit;<br /><br />
+        <input type="radio" id="respuesta3" name="opcion1" value="3">
+        <label for="respuesta1">box-shadow:10px 10px 10px #f00</label><br>
 
-        -<strong> border-spacing:10px;</strong>Incorrecta establece la distancia entre los bordes de las celdas adyacentes<br />
-        border-spacing: length|initial|inherit;<br /><br />
+        <input type="radio" id="respuesta4" name="opcion1" value="4">
+        <label for="respuesta1">box-shadow:4px 4px 4px #f00</label><br>
 
-        -<strong> border-bottom-style:outlet;</strong>Incorrecta establece el estilo del borde inferior de un elemento.<br />
-        border-bottom-style: none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset|initial|inherit;<br /><br />
+        <p>Selecciona el Segundo elemento:</p>
+        <input type="radio" id="respuesta1" name="opcion2" value="1" checked>
+        <label for="respuesta1">border-radius:10px</label><br>
 
-        -<strong> box-decoration-break:slice;</strong> Incorrecta especifica cómo se aplica el fondo, el relleno, el borde, la imagen del borde, la sombra del cuadro, el margen y la ruta de recorte de un elemento cuando el cuadro del elemento está fragmentado.<br />
-        box-decoration-break: slice|clone|initial|inherit|unset;
+        <input type="radio" id="respuesta2" name="opcion2" value="2">
+        <label for="respuesta1">border-spacing:10px</label><br>
 
-    </p>
 
-    <button onclick="respuesta()">Respuesta</button>
+        <input type="radio" id="respuesta3" name="opcion2" value="3">
+        <label for="respuesta1">border-bottom-style:outset</label><br>
+
+        <input type="radio" id="respuesta4" name="opcion2" value="4">
+        <label for="respuesta1">box-decoration-break:slice</label><br>
+    </form><br />
+
+    <button onclick="respuesta()">Comprobar</button><br />
+
+    <p id="resul" style="display:none"></p>
+    <p id="exp" style="display:none"></p>
 
 
     <script>
-        var contenedor = document.getElementById("contImagen");
-        var parrafo = document.getElementById("resul");
-        var explicacion = document.getElementById("exp");
-
         var respuesta = () => {
-            explicacion.style.display = "inherit";
-            contenedor.style.height = "2780px";
-            parrafo.innerText = "     Respuesta correcta";
-            parrafo.style.color = "Blue";
-            parrafo.style.fontWeight = "700";
+            var contenedor = document.getElementById("contImagen");
+            var parrafo = document.getElementById("resul");
+            var explicacion = document.getElementById("exp");
+
+
+            pulsado = document.formulario.opcion1;
+            for (i = 0; i < pulsado.length; i++) {
+                valor = pulsado[i].checked;
+                if (valor == true) {
+                    var opcion1 = pulsado[i];
+                    break;
+                }
+            }
+            pulsado = document.formulario.opcion2;
+            for (i = 0; i < pulsado.length; i++) {
+                valor = pulsado[i].checked;
+                if (valor == true) {
+                    var opcion2 = pulsado[i];
+                    break;
+                }
+            }
+            $("p#hello").css("display", "inherit");
+            switch (opcion1.value) {
+                case "1":
+                    explicacion.innerText = "\ndisplay = inline; Incorrecta\n Muestra un elemento como un elemento en línea (como span). Cualquier propiedad de altura y ancho no tendrá efecto.\nLos valores validos son: \ndisplay: inline|block|contents|flex|grid|inline-block|inline-flex|inline-grid|inline-table|list-item|table|table|table-column-group|table-header-group|table-footer-group|table-row-group|table-cell|table-column|table-row|none|initial|inherit|;";
+                    explicacion.style.display = "inherit";
+                    parrafo.innerText = "Respuesta";
+                    parrafo.style.color = "Blue";
+                    parrafo.style.fontWeight = "700";
+
+                    $("p#hello").css("display", "inline");
+                    break;
+                case "2":
+                    explicacion.innerText = "\nbox-sizing = order-box; Correcta\n La propiedad define cómo se calculan el ancho y el alto de un elemento. Con border-box las propiedades de ancho y alto (y propiedades mínimas / máximas) incluyen contenido, relleno y borde.\nLos valores permitidos son:\nbox-sizing: content-box|border-box|initial|inherit;";
+                    explicacion.style.display = "inherit";
+                    parrafo.innerText = "Respuesta";
+                    parrafo.style.color = "Blue";
+                    parrafo.style.fontWeight = "700";
+                    $("p:#hello").css("box-sizing", "border-box");
+                    break;
+                case "3":
+                    explicacion.innerText = "\nbox-shadow = 10px 10px 10x #f00 Incorrecta\n esta propiedad adjunta una o más sombras a un elemento y el ejemplo no lleva sombras.\nLos valores permitidos son:\nbox-sizing: content-box|border-box|initial|inherit;";
+                    explicacion.style.display = "inherit";
+                    parrafo.innerText = "Respuesta";
+                    parrafo.style.color = "Blue";
+                    parrafo.style.fontWeight = "700";
+                    $("p:#hello").css("box-shadow", "10px 10px 10px #f00");
+                    break;
+                default:
+                    explicacion.innerText = "\nbox-shadow =  4px 4px 4x #f00 Incorrecta\n esta propiedad adjunta una o más sombras a un elemento y el ejemplo no lleva sombras.\nLos valores permitidos son:\nbox-sizing: content-box|border-box|initial|inherit;";
+                    explicacion.style.display = "inherit";
+                    parrafo.innerText = "Respuesta";
+                    parrafo.style.color = "Blue";
+                    parrafo.style.fontWeight = "700";
+                    $("p:#hello").css("box-shadow", "4px 4px 4px #f00");
+            }
+            switch (opcion2.value) {
+                case "1":
+                    explicacion.innerText += "\n\nborder-radius = 10px Correcta:\n La propiedad define el radio de las esquinas del elemento.\n Los valores permitidos son:\nborder-radius: 1-4 length| / 1-4 length||initial|inherit;";
+                    explicacion.style.display = "inherit";
+                    parrafo.innerText = "Respuesta";
+                    parrafo.style.color = "Blue";
+                    parrafo.style.fontWeight = "700";
+                    $("p:#hello").css("border-radius", "10px");
+                    break;
+                case "2":
+                    explicacion.innerText += "\n\nborder-spacing = 10px Incorrecta\n establece la distancia entre los bordes de las celdas adyacentes\nLos valores permitidos son:\n border-spacing: length|initial|inherit;";
+                    explicacion.style.display = "inherit";
+                    parrafo.innerText = "Respuesta";
+                    parrafo.style.color = "Blue";
+                    parrafo.style.fontWeight = "700";
+                    $("p:#hello").css("border-spacing", "10px");
+                    break;
+                case "3":
+                    explicacion.innerText += "\n\nborder-bottom-style = outlet Incorrecta\n establece el estilo del borde inferior de un elemento.\n Los valores permitidos son:\nborder-bottom-style: none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset|initial|inherit;";
+                    explicacion.style.display = "inherit";
+                    parrafo.innerText = "Respuesta";
+                    parrafo.style.color = "Blue";
+                    parrafo.style.fontWeight = "700";
+                    $("p:#hello").css("border-bottom-style", "outlet");
+                    break;
+                default:
+                    explicacion.innerText += "\n\nbox-decoration-break = slice Incorrecta\n especifica cómo se aplica el fondo, el relleno, el borde, la imagen del borde, la sombra del cuadro, el margen y la ruta de recorte de un elemento cuando el cuadro del elemento está fragmentado.\nLos valores validos son: \nbox-decoration-break: slice|clone|initial|inherit|unset;";
+                    explicacion.style.display = "inherit";
+                    parrafo.innerText = "Respuesta";
+                    parrafo.style.color = "Blue";
+                    parrafo.style.fontWeight = "700";
+                    $("p:#hello").css("box-decoration-break", "slice");
+
+            }
         }
 
     </script>

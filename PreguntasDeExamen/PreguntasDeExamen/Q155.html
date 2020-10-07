@@ -6,14 +6,14 @@
     <title>Document</title>
     <style>
         body {
-            font-family: courier;
-            font-size:x-large;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: x-large;
             margin: 10px;
         }
        
         .container {
             width: 1112px;
-            height: 1200px;
+            height: 420px;
             overflow: hidden;
             margin: 0px;
             position: relative;
@@ -40,7 +40,7 @@
     </div>
 
 
-
+    <p id="resul" ></p>
     <p id="exp" style="display:none">
 
         -<strong> &lt;input type="number" name="rating" min="1" max="10"&gt;</strong>Incorrecta  Muestra un elemento tipo numero no slider<br />
@@ -65,8 +65,8 @@
 
         var respuesta = () => {
             explicacion.style.display = "inherit";
-            contenedor.style.height = "2780px";
-            parrafo.innerText = "     Respuesta correcta";
+            contenedor.style.height = "820px";
+            parrafo.innerText = "     Respuesta";
             parrafo.style.color = "Blue";
             parrafo.style.fontWeight = "700";
         }

@@ -13,8 +13,8 @@
         }
 
         .contain {
-            width: 1112px;
-            height: 2026px;
+            width: 1000px;
+            height: 1900px;
             overflow: hidden;
             margin: 0px;
             position: relative;
@@ -31,9 +31,7 @@
                 /*min-width: 100%;*/
             }
 
-        .container > ul {
-            border: 1px solid black;
-        }
+       
     </style>
 </head>
 <body>
@@ -45,16 +43,15 @@
     </div>
 
     <div id="container">
-        <ul >
-            <li style="border: 1px solid black">
-                First List Item
+        <ul id="UL">
+            <li id="primerLI">First List Item
                 <ul>
                     <li>Child List Item</li>
                 </ul>
             </li>
-            <li>Second List Item</li>
-            <li>Third List Item</li>
-            <li>Fourth List Item</li>
+            <li id="segundoLI">Second List Item</li>
+            <li id="tercerLI">Third List Item</li>
+            <li id="cuartoLI">Fourth List Item</li>
         </ul >
     </div>
 
@@ -63,7 +60,6 @@
         <xmp id="exp" style="display:none">
     Respuesta A
     
-    No hace nada Se aplica al cargar la pagina 
     .container > ul {
     border:1px solid black;
     }
@@ -84,24 +80,56 @@
             
     $("ul:first-of-type").css("border", "1px solid black") 
 
-    No hace nada
+    No es lo que se pide rodeo el primer Ul y el primer li
         </xmp>
     </p>
 
-    <button onclick="respuestaA()">Respuesta</button>
+    <button onclick="respuestaA()">RespuestaA</button>
+    <button onclick="respuestaB()">RespuestaB</button>
+    <button onclick="respuestaC()">RespuestaC</button>
+    <button onclick="respuestaD()">RespuestaD</button>
 
 
     <script>
         var explicacion = document.getElementById("exp");
 
-        var respuestaB = () => {
-            explicacion.style.display = "inherit";
-            $("div#container > ul").css("border","1px solid black")
-        }
         var respuestaA = () => {
             explicacion.style.display = "inherit";
-            $("div#container > ul").css("border", "1px solid black")
+
+            $("div#container > ul").css("border", "0px")
+            $("li:#primerLI").css("border", "0px") 
+            $("li:first-of-type").css("border", "0px")
+
+            $(".container > ul").css("border", "1px solid black")
         }
+
+        var respuestaB = () => {
+            explicacion.style.display = "inherit";
+            $(".container > ul").css("border", "0px")
+            $("li:#primerLI").css("border", "0px")
+            $("li:first-of-type").css("border", "0px")
+
+            $("div#container > ul").css("border","1px solid black")
+        }
+        var respuestaC = () => {
+            explicacion.style.display = "inherit";
+            $(".container > ul").css("border", "0px")
+            $("div#container > ul").css("border", "0px")
+            $("li:first-of-type").css("border", "0px")
+
+            $("li:#primerLI").css("border", "1px solid black") 
+        }
+        var respuestaD = () => {
+            explicacion.style.display = "inherit";
+
+            $(".container > ul").css("border", "0px")
+            $("div#container > ul").css("border", "0px")
+            $("li:#primerLI").css("border", "0px") 
+
+            $("li:first-of-type").css("border", "1px solid black")
+        }
+
+
     </script>
 </body>
 </html>
