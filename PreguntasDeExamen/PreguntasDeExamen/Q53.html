@@ -26,8 +26,8 @@
             margin: 0px;
 
             bottom: 10%;
-            min-height: auto;
-            min-width: 100%;
+            min-height:auto;
+            min-width:100%;
         }
        
 
@@ -45,12 +45,26 @@
     <p id="resul"></p>
     <p>
         <xmp id="exp" style="display:none" ">
-           
+            "Respuesta correcta:"
+
+            "throw new Error(200, "invalid")"
+
+            throw expression;
+            expression	Required. The exception to throw. Can be a string, number, boolean or an object
+            
+            try {
+                if (valor == 2) {
+                    throw new Error(200, "invalid");
+                }
+            }
+            catch (err) {
+                alert("Error");
+            }
         </xmp>
     </p>
 
 
-    <button onclick="respuesta()">Respuesta</button>
+    <button onclick="respuesta(2)">Respuesta</button>
    
 
     <script>
@@ -58,13 +72,21 @@
         var parrafo = document.getElementById("resul");
         var explicacion = document.getElementById("exp");
 
-        var respuesta = () => {
+        var respuesta = (valor) => {
             explicacion.style.display = "inherit";
-            contenedor.style.height = "1200px";
             parrafo.innerText = "     Respuesta correcta";
             parrafo.style.color = "Blue";
             parrafo.style.fontWeight = "700";
-        }
+            try {
+                if (valor == 2) {
+                    throw new Error(200, "invalid");
+                }
+            }
+            catch (err) {
+                alert("Error");
+            }
+        };
+
        
     </script>
 </body>

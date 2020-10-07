@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
     <title>Document</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size:xx-large;
+            font-size: xx-large;
             margin: 10px;
         }
-       
-        .container {
+
+        .contain {
             width: 1112px;
             height: 2026px;
             overflow: hidden;
             margin: 0px;
             position: relative;
         }
-            .container > .crop {
+
+            .contain > .crop {
                 position: absolute;
                 left: 0%;
                 right: 100%;
@@ -28,23 +30,40 @@
                 min-height: auto;
                 /*min-width: 100%;*/
             }
-       
 
+        .container > ul {
+            border: 1px solid black;
+        }
     </style>
 </head>
 <body>
 
     <h1>Pregunta 87</h1>
 
-    <div id="contImagen" class="container">
+    <div id="contImagen" class="contain">
         <img class="crop" src="./Imagenes/q87.jpg" />
     </div>
 
+    <div id="container">
+        <ul >
+            <li style="border: 1px solid black">
+                First List Item
+                <ul>
+                    <li>Child List Item</li>
+                </ul>
+            </li>
+            <li>Second List Item</li>
+            <li>Third List Item</li>
+            <li>Fourth List Item</li>
+        </ul >
+    </div>
 
     <p id="resul">
     <p >
         <xmp id="exp" style="display:none">
     Respuesta A
+    
+    No hace nada Se aplica al cargar la pagina 
     .container > ul {
     border:1px solid black;
     }
@@ -53,13 +72,13 @@
 
     Respuesta B
     $("div#container >ul").css("border", "1px solid black")
-
-    No hace nada
+    No es lo que se pide rodea a todo el div
+    
 
     Respuesta C
     ul style="border: 1px solid black"
 
-    Respuesta correcta Dibuja El borde del primer UL
+    Respuesta correcta Dibuja El borde del primer UL pero hay que ponerlo a capon
 
     Respuesta D
             
@@ -69,16 +88,20 @@
         </xmp>
     </p>
 
-    <button onclick="respuesta()">Respuesta</button>
+    <button onclick="respuestaA()">Respuesta</button>
 
 
     <script>
         var explicacion = document.getElementById("exp");
 
-        var respuesta = () => {
+        var respuestaB = () => {
             explicacion.style.display = "inherit";
+            $("div#container > ul").css("border","1px solid black")
         }
-
+        var respuestaA = () => {
+            explicacion.style.display = "inherit";
+            $("div#container > ul").css("border", "1px solid black")
+        }
     </script>
 </body>
 </html>
