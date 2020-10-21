@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size:xx-large;
+            margin: 10px;
+        }
+        
+        .container {
+            width: 1112px;
+            height: 1340px;
+            overflow: hidden;
+            margin: 0px;
+            position: relative;
+        }
+        .container > .crop {
+            position:absolute;
+            left: 0%;
+            right: 100%;
+            top: 0%;
+            margin: 0px;
+
+            bottom: 10%;
+            min-height: auto;
+            min-width: 100%;
+        }
+      
+    </style>
+</head>
+<body>
+
+    <h1>Pregunta 10</h1>
+
+    <div id="contImagen" class="container">
+        <img class="crop" src="./Imagenes/q10.jpg" />
+    </div>
+
+    <button onclick="respuesta()">Respuesta</button>
+
+    
+    <div id="demostracion" style="display:none" >
+        <xmp >
+
+            La respuesta correcta es la siguiente
+
+            <input type="range" representa un control tipo slider
+
+                       min="18" Como el minimo de edad permitido es 18 tenemos
+                                que poner este valor como el minimo valor que acepta el control range
+               
+                       max="90" Como el máximo de edad permitido es 18 tenemos
+                                que poner este valor como el máximo valor que acepta el control range
+               
+                       step="5" Este parametro iundica el salto entre valore
+               
+                     value="37" como nos indican que el valor del slider cuando se carga la pagina debe
+                                ser la media de edad de los participantes (37)
+                                required Indican que es un campo obligatorio>
+        </xmp>
+
+        <p id="resul"></p>
+        <input id="control" type="range" min="18" max="90" step="5" value="37" onchange="VerValor()" required >
+    </div>
+
+    <script>
+        var contenedor = document.getElementById("contImagen");
+        
+        var demostracion = document.getElementById("demostracion");
+
+        var controlSlider = document.getElementById("control");
+
+        valor = document.getElementById("resul");
+
+
+        var respuesta = () => {
+            demostracion.style.display = "inherit";
+            valor.innerHTML = controlSlider.value;
+        }
+
+        var VerValor = () => { valor.innerHTML = controlSlider.value; }
+
+    </script>
+</body>
+</html>

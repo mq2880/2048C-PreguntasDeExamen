@@ -34,12 +34,14 @@
         }
        @media screen and (min-width:200px) and (max-width:480px){
            #navbar{
+               font-size:xx-large;
                float:none;
                width:200px;
            }
        }
         @media screen and (min-width:480px){
             #navbar {
+                font-size: xx-large;
                 float: none;
                 width: 480px;
             }
@@ -51,7 +53,7 @@
     <h1>Pregunta 36</h1>
     <nav id="navbar">
         <div class="menu">
-            <a href="Archivo">Archivo</a>
+            <a >Archivo</a>
             <a href="Editar">Editar</a>
             <a href="Ver">Ver</a>
             <a href="Proyecto">Proyecto</a>
@@ -79,7 +81,10 @@
         }
     }
 
-    - Funciona correctamente si el ancho de la pantalla del dispositivo está entre 200 y 480px el menu flota toma el ancho de 200px
+    - Si el ancho de la pantalla del dispositivo está entre 200 y 480px 
+      
+      El menu del ejemplo toma el ancho de 200px
+       
             
     @media screen and (min-width:480px){
         #navbar {
@@ -87,9 +92,11 @@
             width: 480px;
         }
     }
-    - funciona correctamente si el ancho de la pantalla del  dispositivo es como minimo de 480px el menu flota a la
-        izquierda y toma el ancho de 480px
+    - Si el ancho de la pantalla del dispositivo es como minimo de 480px. 
+      
+      El menu del ejemplo toma el ancho de 480px
 
+            
     No existe el tipo Size para la regla @media por tanto la segunda y la cuarta no funcionarian.
 
         </xmp>

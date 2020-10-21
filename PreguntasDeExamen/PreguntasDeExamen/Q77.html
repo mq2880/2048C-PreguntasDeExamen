@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size:xx-large;
+            margin: 10px;
+        }
+        
+        .container {
+            width: 1112px;
+            height: 382px;
+            overflow: hidden;
+            margin: 0px;
+            position: relative;
+        }
+        .container > .crop {
+            position:absolute;
+            left: 0%;
+            right: 100%;
+            top: 0%;
+            margin: 0px;
+
+            bottom: 10%;
+            min-height: auto;
+            min-width: 100%;
+        }
+      
+    </style>
+</head>
+<body>
+
+    <h1>Pregunta 77</h1>
+
+    <div id="contImagen" class="container">
+        <img class="crop" src="./Imagenes/q77.jpg" />
+    </div>
+
+    <button onclick="respuesta()">Respuesta</button>
+    <p id="resul"></p>
+   
+    <xmp id="exp" style="display:none" >
+    La respuesta correcta es la B <article>
+
+    HTML5 es la primera actualización del lenguaje HTML desde el lanzamiento 
+    de HTML4 en 1998. Esta actualización creó nuevas etiquetas html para que 
+    las utilicen los desarrolladores web y con los avances en los motores de 
+    búsqueda desde 1998; se ha creado pensando en el SEO.
+    
+    Estas etiquetas son:
+
+    <Header>
+    <Nav>
+    <Article>
+    <Aside>
+    <Section>
+    <Footer>
+    </xmp>
+    <p id="fuente" style="display:none" >Fuente:<a href="https://resources.bayshoresolutions.com/blog/how-html-5-can-help-your-search-engine-optimization">https://resources.bayshoresolutions.com/blog/how-html-5-can-help-your-search-engine-optimization</a></p>
+    
+
+
+    
+
+
+    <script>
+        var contenedor = document.getElementById("contImagen");
+        var parrafo = document.getElementById("resul");
+        var explicacion = document.getElementById("exp");
+        var source = document.getElementById("fuente");
+
+        var respuesta = () => {
+            explicacion.style.display = "inherit";
+            source.style.display = "inherit";
+            //contenedor.style.height = "2754px";
+            parrafo.innerText = "Respuesta";
+            parrafo.style.color = "Blue";
+            
+        }
+
+    </script>
+</body>
+</html>
