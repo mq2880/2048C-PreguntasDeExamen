@@ -28,9 +28,7 @@
                 min-height:600px;
             }
 
-            div a:last-child ~ a{
-                background-color: yellow;
-            }
+            
        
 
     </style>
@@ -51,10 +49,10 @@
         </div>
     </nav>
     <xmp id="resp" style="display:none">
-        div a:last-child ~ a{
+        div a:last-child # ~ a{
             background-color: yellow;
         }
-        Colocaria el menu register.html a amarillo
+        No 
     </xmp>
     <button onclick="respuesta()">Respuesta</button>
 
@@ -64,9 +62,9 @@
         var menu = document.getElementById("mainmenu");
 
         var respuesta = () => {
-            contenedor.style.height = "1136px";
             menu.style.display = "inherit";
             resp.style.display = "inherit";
+            $("div a:last-child # ~ a").css("background-color", "yellow")
         }
 
     </script>

@@ -39,16 +39,98 @@
         <img class="crop" src="./Imagenes/q274.jpg" />
     </div>
 
-    
-    <button onclick="respuesta()">Respuesta</button>
+    <select name="opciones" id="opt">
+        <option value="rangeError">dispara rangeError</option>
+        <option value="Otro">dispara Otro error</option>
+        <option value="sin">Sin Error</option>
+    </select>
+
+
+    <button onclick="respuestaA()">Respuesta</button>
+    <button onclick="respuestaB()">Respuesta</button>
+    <button onclick="respuestaC()">Respuesta</button>
+    <button onclick="respuestaD()">Respuesta</button>
 
     <script>
         var contenedor = document.getElementById("contImagen");
         var resp = document.getElementById("resp");
-        var respuesta = () => {
-            contenedor.style.height = "1960px";
-            resp.style.display = "inherit";
+        var rangeError = Object;
+
+        var respuestaA = () => {
+
+            try {
+                function1();
+            }
+            catch (e) {
+                if (e instanceof rangeError) {
+                    function2();
+                } else {
+                    function3();
+                }
+            }
         }
+
+        var respuestaB = () => {
+            try {
+                function1();
+            }
+            catch (e) {
+                function2();
+            }
+            finally {
+                if (e instanceof rangeError) {
+                    function3();
+                }
+            }
+        }
+
+        var respuestaC = () => {
+            try {
+                function1();
+            }
+            catch (e) {
+                function3();
+            }
+            finally {
+                if (e instanceof rangeError) {
+                    function2();
+                }
+            }
+        }
+
+        var respuestaD = () => {
+            try {
+                function1();
+            }
+            catch (e) {
+                if (e instanceof rangeError) {
+                    function3();
+                } else {
+                    function2();
+                }
+            }
+        }
+
+
+        var function1 = () => {
+            if (document.getElementById("opt").value == "rangeError")
+            {
+                
+                throw new rangeError(222);
+            }
+            else if (document.getElementById("opt").value == "Otro")
+            {
+                throw new Error(200)
+            }
+            else
+            {
+                alert("function1 sin error");
+            }
+            
+        }
+
+        var function2 = () => alert("function2");
+        var function3 = () => alert("function3");
 
     </script>
 </body>

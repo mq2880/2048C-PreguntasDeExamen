@@ -43,13 +43,44 @@
         <img class="crop" src="./Imagenes/q308.jpg" />
     </div>
 
-    <button onclick="respuesta()">Respuesta</button>
+    <div id="resp" style="display:none">
+        <xmp>
+            var guardar = () => {
+
+            var myscore = 35;
+
+            <strong>localStorage.setItem("score", myscore);</strong>
+
+            alert("Se ha guardado el valor 35");
+
+            }
+
+            var recuperar = () => {
+            <strong>var myscore = localStorage.getItem("score");</strong>
+            alert("Se ha recuperado el valor " + myscore);
+
+            }
+        </xmp>
+    </div>
+    <button onclick="guardar()">Guardar</button>
+    <button onclick="recuperar()">Recuperar</button>
 
     <script>
         var contenedor = document.getElementById("contImagen");
 
-        var respuesta = () => {
-            contenedor.style.height = "2121px";
+        var guardar = () => {
+            document.getElementById("resp").style="inherit"
+            var myscore = 35;
+            localStorage.setItem("score", myscore);
+            alert("Se ha guardado el valor 35");
+
+        }
+
+        var recuperar = () => {
+            document.getElementById("resp").style = "inherit"
+            var myscore = localStorage.getItem("score");
+            alert("Se ha recuperado el valor " + myscore);
+
         }
 
     </script>

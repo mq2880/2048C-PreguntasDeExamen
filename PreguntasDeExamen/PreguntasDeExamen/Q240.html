@@ -44,11 +44,29 @@
 
     <script>
         var contenedor = document.getElementById("contImagen");
+        var zBotones = document.querySelectorAll("button")
+
+
         var resp = document.getElementById("resp");
         var respuesta = () => {
-            contenedor.style.height = "1569px";
-            resp.style.display = "inherit";
+            var zParrafos = document.querySelectorAll("p");
+            var zParrafoNuevo = document.createElement("p");
+            zParrafoNuevo.innerHTML = "function newOrder(orderId, orderShip, <strong>callback</strong>){<br/>&emsp;&emsp;&emsp;document.write('New order being processed');<br/> &emsp;&emsp;&emsp;<strong>callback()</strong>;<br/> }<br/> newOrder('333', 'EXPRESS', <strong>function()</strong> {<br/> &emsp;&emsp;&emsp;...<br/> ;})<br/> <br/> Referencia: <a href='https://medium.com/@anamartinezaguilar/callbacks-en-javascript-8deeca9824b4'>https://medium.com/@anamartinezaguilar/callbacks-en-javascript-8deeca9824b4";
+            zParrafoNuevo.style.color = "blue";
+
+            var zBody = document.querySelectorAll("body")[0];
+            if (zParrafos.length > 0) zBody.removeChild(zParrafos[0]);
+            zBody.insertBefore(zParrafoNuevo, zBotones[0]);
+
+            function newOrder(orderId, orderShip, callback) {
+                document.write('New order being processed');
+                callback();
+            }
+
+            newOrder('333', 'EXPRESS', function () { alert("llamada al callback")});
         }
+        
+        
 
     </script>
 </body>

@@ -44,13 +44,14 @@
 
     <p id="resul"></p>
     <p>
-        <xmp id="exp" style="display:none" ">
+        <xmp id="exp" style="display:none">
             "Respuesta correcta:"
 
             "throw new Error(200, "invalid")"
 
             throw expression;
-            expression	Required. The exception to throw. Can be a string, number, boolean or an object
+            expression	Required. The exception to throw. Can be a string, 
+            number, boolean or an object
             
             try {
                 if (valor == 2) {
@@ -74,6 +75,7 @@
 
         var respuesta = (valor) => {
             explicacion.style.display = "inherit";
+            contenedor.style.height = "1200px";
             parrafo.innerText = "     Respuesta correcta";
             parrafo.style.color = "Blue";
             parrafo.style.fontWeight = "700";

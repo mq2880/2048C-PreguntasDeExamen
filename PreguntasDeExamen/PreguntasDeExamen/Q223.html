@@ -39,9 +39,16 @@
         <img class="crop" src="./Imagenes/q223.jpg" />
     </div>
 
+    product:<input name="product" list="product_list" autocomplete="on" />
+    <select id="ProductList" autocomplete="on">
+        <option>car</option>
+        <option>boat</option>
+    </select>
+
+
     <xmp id="resp" style="display:none">
-        product:<input name="product" list="product_list" autocomplete="on" />
-        <select id="ProductList">
+        product:<input name="product" list="product_list"  />
+        <select id="ProductList" autocomplete="on">
             <option>car</option>
             <option>boat</option>
         </select>
@@ -54,7 +61,6 @@
         var contenedor = document.getElementById("contImagen");
         var resp = document.getElementById("resp");
         var respuesta = () => {
-            contenedor.style.height = "2221px";
             resp.style.display = "inherit";
         }
 

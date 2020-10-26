@@ -40,35 +40,129 @@
     </div>
 
 
+    <label for='favoriteColor'>Favorite Color(2-10 characters):</label>
+    <input type='text' id='favoriteColor' />
+    <input type='button' value='Submit' onclick=""/>
 
-    <p id="exp" style="display:none">
-
-        -<strong>A</strong> Incorrecta Cambia el valor de min en función de la longitud del element y min es fijo y max hace algo raro<br /><br />
-
-        -<strong>B</strong> Incorrecta Falta el parametro que contiene el dato<br /><br />
-        
-        -<strong>C</strong> Incorrecta Faltan todos los parametros<br /><br />
-        
-        -<strong>D</strong> Correcta <br /><br /><br />
-
-
-    </p>
-
-    <button onclick="respuesta()">Respuesta</button>
-
+    <button onclick="respuestaA()">Respuesta A</button>
+    <button onclick="respuestaB()">Respuesta B</button>
+    <button onclick="respuestaC()">Respuesta C</button>
+    <button onclick="respuestaD()">Respuesta D</button>
 
     <script>
         var contenedor = document.getElementById("contImagen");
-        var parrafo = document.getElementById("resul");
-        var explicacion = document.getElementById("exp");
+        var zBotones = document.querySelectorAll("button")
 
-        var respuesta = () => {
-            explicacion.style.display = "inherit";
+        var respuestaA = () => {
             contenedor.style.height = "1822px";
-            parrafo.innerText = "     Respuesta correcta";
-            parrafo.style.color = "Blue";
-            parrafo.style.fontWeight = "700";
+            
+            
+            var zParrafos = document.querySelectorAll("p");
+            var zParrafoNuevo = document.createElement("p");
+            zParrafoNuevo.innerHTML = "Incorrecta utiliza slice para extraer el max pero lo devuelve como cadena y no es correcto";
+            zParrafoNuevo.style.color = "red";
+
+            var zBody = document.querySelectorAll("body")[0];
+            if (zParrafos.length > 0) zBody.removeChild(zParrafos[0]);
+            zBody.insertBefore(zParrafoNuevo, zBotones[0]);
+
+            testLengthA(document.getElementById('favoriteColor'), 2, 10);
+
         }
+
+        var respuestaB = () => {
+           
+
+            var zParrafos = document.querySelectorAll("p");
+            var zParrafoNuevo = document.createElement("p");
+            zParrafoNuevo.innerHTML = "Incorrecta La función utiliza el objeto element que no se le pasa como parametro y da el error ReferenceError: element is not defined";
+            zParrafoNuevo.style.color = "red";
+
+            var zBody = document.querySelectorAll("body")[0];
+            if (zParrafos.length > 0) zBody.removeChild(zParrafos[0]);
+            zBody.insertBefore(zParrafoNuevo, zBotones[0]);
+
+            testLengthB(document.getElementById('favoriteColor'), 2, 10);
+        }
+
+        var respuestaC = () => {
+
+
+            var zParrafos = document.querySelectorAll("p");
+            var zParrafoNuevo = document.createElement("p");
+            zParrafoNuevo.innerHTML = "Incorrecta da el error SyntaxError: Unexpected token 'this'";
+            zParrafoNuevo.style.color = "red";
+
+            var zBody = document.querySelectorAll("body")[0];
+            if (zParrafos.length > 0) zBody.removeChild(zParrafos[0]);
+            zBody.insertBefore(zParrafoNuevo, zBotones[0]);
+
+            //testLengthC(document.getElementById('favoriteColor'), 2, 10);
+            testLengthC(document.getElementById('favoriteColor'));
+        }
+        var respuestaD = () => {
+
+
+            var zParrafos = document.querySelectorAll("p");
+            var zParrafoNuevo = document.createElement("p");
+            zParrafoNuevo.innerHTML = "Correcta";
+            zParrafoNuevo.style.color = "blue";
+
+            var zBody = document.querySelectorAll("body")[0];
+            if (zParrafos.length > 0) zBody.removeChild(zParrafos[0]);
+            zBody.insertBefore(zParrafoNuevo, zBotones[0]);
+
+            //testLengthC(document.getElementById('favoriteColor'), 2, 10);
+            testLengthD(document.getElementById('favoriteColor'), 2,10);
+        }
+        function testLengthA(element, min, max) {
+            var uInput = element.value;
+            var min = element.value.length;
+            var max = element.value.slice(0, element.value.length);
+            if (uInput.length >= min && uInput.length <= max) {
+                return true;
+            } else {
+                alert("Please enter between " + min + " and " + max + " charaters");
+                element.focus();
+                return false;
+            }
+        }
+
+        function testLengthB(min, max) {
+            var uInput = element.value;
+            if (uInput.length >= min && uInput.length <= max) {
+                return true;
+            } else {
+                alert("Please enter between " + min + " and " + max + " charaters");
+                element.focus();
+                return false;
+            }
+        }
+
+       /* function testLengthC(this) {
+            var uInput = this.value;
+            var min = this.value.length;
+            var max = this.value.slice(0, this.value.length);
+            if (uInput.length >= min && uInput.length <= max) {
+                return true;
+            } else {
+                alert("Please enter between " + min + " and " + max + " charaters");
+                element.focus();
+                return false;
+            }
+        }*/
+
+        function testLengthD(element, min, max) {
+            var uInput = element.value;
+            if (uInput.length >= min && uInput.length <= max) {
+                return true;
+            } else {
+                alert("Please enter between " + min + " and " + max + " charaters");
+                element.focus();
+                return false;
+            }
+        }
+
 
     </script>
 </body>

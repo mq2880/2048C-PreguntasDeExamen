@@ -30,8 +30,7 @@
                 min-height: auto;
                 /*min-width: 100%;*/
             }
-
-       
+            
     </style>
 </head>
 <body>
@@ -41,40 +40,59 @@
     <div id="contImagen" class="contain">
         <img class="crop" src="./Imagenes/q87.jpg" />
     </div>
+    <strong>EJEMPLO ampliado</strong><br /><br />
 
-    <div id="container">
-        <ul id="UL">
-            <li id="primerLI">First List Item
-                <ul>
-                    <li>Child List Item</li>
+    <div id="container">div:DIV(container)
+        <ul id="PrimerUL">ul:DIV/UL1
+            <li>li:DIV/UL1/LI1
+                <ul id="SegundoUL">ul:DIV/UL1/LI1/UL1
+                    <li>li:DIV/UL1/LI1/UL1/LI1</li>
+                    <li>li:DIV/UL1/LI1/UL1/LI2</li>
+                    <li>li:DIV/UL1/LI1/UL1/LI3</li>
+                </ul>
+                <ul id="SegundoUL">ul:DIV/UL1/LI1/UL2
+                    <li>li:DIV/UL1/LI1/UL2/LI1</li>
+                    <li>li:DIV/UL1/LI1/UL2/LI2</li>
+                    <li>li:DIV/UL1/LI1/UL2/LI3</li>
                 </ul>
             </li>
-            <li id="segundoLI">Second List Item</li>
-            <li id="tercerLI">Third List Item</li>
-            <li id="cuartoLI">Fourth List Item</li>
-        </ul >
+            <li id="segundoLI">li:DIV/UL1/LI2</li>
+            <li id="tercerLI">li:DIV/UL1/LI3</li>
+            <li id="cuartoLI">li:DIV/UL1/LI4</li>
+        </ul>
+        <ul id="TercerUL">ul:DIV/UL2
+            <li>li:DIV/UL2/LI1</li>
+            <li id="segundoLI">li:DIV/UL2/LI2
+                <ul id="CuartoUL">ul:DIV/UL2/LI2/UL1
+                    <li>li:DIV/UL2/LI2/UL1/LI1</li>
+                    <li>li:DIV/UL2/LI2/UL1/LI2</li>
+                    <li>li:DIV/UL2/LI2/UL1/LI3</li>
+                </ul>
+            </li>
+            <li id="tercerLI">li:DIV/UL2/LI3</li>
+            <li id="cuartoLI">li:DIV/UL2/LI4</li>
+        </ul>
     </div>
 
-    <p id="resul">
-    <p >
-        <xmp id="exp" style="display:none">
+    <xmp id="exp" style="display:none">
     Respuesta A
     
     .container > ul {
     border:1px solid black;
     }
 
-    No funciona no pinta nada
+    No funciona no pinta nada ya que no hay ninguna clase con nombre "container"
 
     Respuesta B
     $("div#container >ul").css("border", "1px solid black")
-    No es lo que se pide rodea a todo el div
+    Respuesta correcta ya que el marca el borde de los UL hijos del Div en este caso 
     
 
     Respuesta C
     ul style="border: 1px solid black"
 
-    Respuesta correcta Dibuja El borde del primer UL pero hay que ponerlo a capon
+    Respuesta correcta Dibuja El borde del primer UL pero hay que ponerlo a capón
+              No he encontrado la forma de marcar solo la linea de
 
     Respuesta D
             
@@ -82,7 +100,6 @@
 
     No es lo que se pide rodeo el primer Ul y el primer li
         </xmp>
-    </p>
 
     <button onclick="respuestaA()">RespuestaA</button>
     <button onclick="respuestaB()">RespuestaB</button>
@@ -92,41 +109,68 @@
 
     <script>
         var explicacion = document.getElementById("exp");
+        var zBotones = document.querySelectorAll("button")
+        
 
         var respuestaA = () => {
-            explicacion.style.display = "inherit";
+           // explicacion.style.display = "inherit";
+            
 
-            $("div#container > ul").css("border", "0px")
-            $("li:#primerLI").css("border", "0px") 
-            $("li:first-of-type").css("border", "0px")
+            $(".container > ul").css("border", "1px solid black");
 
-            $(".container > ul").css("border", "1px solid black")
+
+            var zParrafos = document.querySelectorAll("p")
+            var zParrafoNuevo = document.createElement("p");
+            zParrafoNuevo.innerHTML = "No funciona no pinta nada ya que no hay ningun <br/>elemento cuya clase tenga el nombre 'container'";
+            zParrafoNuevo.style.color = "red";
+
+            var zBody = document.querySelectorAll("body")[0];
+            if (zParrafos.length>0) zBody.removeChild(zParrafos[0]);
+            zBody.insertBefore(zParrafoNuevo,zBotones[0]);
         }
 
         var respuestaB = () => {
-            explicacion.style.display = "inherit";
-            $(".container > ul").css("border", "0px")
-            $("li:#primerLI").css("border", "0px")
-            $("li:first-of-type").css("border", "0px")
+            
+            
+            $("#container > ul").css("border", "1px solid black")
 
-            $("div#container > ul").css("border","1px solid black")
+            var zParrafos = document.querySelectorAll("p")
+            var zParrafoNuevo = document.createElement("p");
+            zParrafoNuevo.innerHTML = "No funciona no enmarca SOLO EL PRIMER UL, enmarca todos<br/>los ul que sean hijos del div";
+            zParrafoNuevo.style.color = "red";
+
+            var zBody = document.querySelectorAll("body")[0];
+            if (zParrafos.length > 0) zBody.removeChild(zParrafos[0]);
+            zBody.insertBefore(zParrafoNuevo, zBotones[0]);
+            
+            
         }
         var respuestaC = () => {
-            explicacion.style.display = "inherit";
-            $(".container > ul").css("border", "0px")
-            $("div#container > ul").css("border", "0px")
-            $("li:first-of-type").css("border", "0px")
+            
+            $("#PrimerUL").css("border", "1px solid black")
 
-            $("li:#primerLI").css("border", "1px solid black") 
+            var zParrafos = document.querySelectorAll("p")
+            var zParrafoNuevo = document.createElement("p");
+            zParrafoNuevo.innerHTML = "funciona pero por que hay ponerlo en el elemento que quieras no es automatico <br/>la forma de hacerlo automatico seria <br/>$(\"#container > ul: first\").css(\"border\", \"1px solid black\")";
+            zParrafoNuevo.style.color = "blue";
+
+            var zBody = document.querySelectorAll("body")[0];
+            if (zParrafos.length > 0) zBody.removeChild(zParrafos[0]);
+            zBody.insertBefore(zParrafoNuevo, zBotones[0]);
+
         }
         var respuestaD = () => {
-            explicacion.style.display = "inherit";
+            //explicacion.style.display = "inherit";
+            $("ul:first-of-type").css("border", "1px solid black")
+            var zParrafos = document.querySelectorAll("p")
+            var zParrafoNuevo = document.createElement("p");
+            zParrafoNuevo.innerHTML = "no funciona enmarca los primeros ul";
+            zParrafoNuevo.style.color = "blue";
 
-            $(".container > ul").css("border", "0px")
-            $("div#container > ul").css("border", "0px")
-            $("li:#primerLI").css("border", "0px") 
-
-            $("li:first-of-type").css("border", "1px solid black")
+            var zBody = document.querySelectorAll("body")[0];
+            if (zParrafos.length > 0) zBody.removeChild(zParrafos[0]);
+            zBody.insertBefore(zParrafoNuevo, zBotones[0]);
+            //$("#container > ul:first").css("border", "1px solid black")
         }
 
 

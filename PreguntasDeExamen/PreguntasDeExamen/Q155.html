@@ -40,20 +40,26 @@
     </div>
 
 
-    <p id="resul" ></p>
-    <p id="exp" style="display:none">
 
-        -<strong> &lt;input type="number" name="rating" min="1" max="10"&gt;</strong>Incorrecta  Muestra un elemento tipo numero no slider<br />
-
-        -<strong>  &lt;input type="number" name="rating" min="1" max="10" default=5&gt;</strong>Incorrecta  Muestra un elemento tipo numero no slider<br />
-
-        -<strong>  &lt;input type="range" name="rating" min="1" max="10" default=5&gt;</strong> correcta <br />
-
-        -<strong>  &lt;input type="range" name="rating" min="1" max="10" value=5&gt;</strong> Incorrecta Muestra un elemento tipo slider pero su valor es 5 no su default<br /><br /><br />
+    <p id="resul"></p>
+    <div id="exp" style="display:none">
 
 
 
-    </p>
+        a: <input type="number" name="rating" min="1" max="10"> Incorrecta  Muestra un elemento tipo numero no slider<br /><br />
+
+        b: <input type="number" name="rating" min="1" max="10" default=5> Incorrecta  Muestra un elemento tipo numero no slider<br />
+
+        
+        c: <input id="control" type="range" name="rating" min="1" max="10" default=5 onchange="VerValor()" ><p id="valor" style="display:inline-block"></p><br />
+
+        
+        d: <input id="control1" type="range" name="rating" min="1" max="10" value=5 onchange="VerValor1()"><p id="valor1" style="display:inline-block"></p>
+
+
+
+
+    </div>
 
     <button onclick="respuesta()">Respuesta</button>
 
@@ -62,6 +68,13 @@
         var contenedor = document.getElementById("contImagen");
         var parrafo = document.getElementById("resul");
         var explicacion = document.getElementById("exp");
+        valor = document.getElementById("valor");
+        var controlSlider = document.getElementById("control");
+        valor.innerHTML = controlSlider.value;
+
+        valor1 = document.getElementById("valor1");
+        var controlSlider1 = document.getElementById("control1");
+        valor1.innerHTML = controlSlider1.value;
 
         var respuesta = () => {
             explicacion.style.display = "inherit";
@@ -70,7 +83,10 @@
             parrafo.style.color = "Blue";
             parrafo.style.fontWeight = "700";
         }
-
+        var VerValor = () => { valor.innerHTML = '   ' + controlSlider.value + ' Incorrecta  no muestra 5 como predeterminado'; }
+        var VerValor1 = () => { valor1.innerHTML = '   ' + controlSlider1.value + ' Correcta'; }
+        VerValor();
+        VerValor1();
     </script>
 </body>
 </html>
