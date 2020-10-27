@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jQuery-3.2.1.js"></script>
     <title>Document</title>
     <style>
         body {
             font-family: courier;
-            font-size:x-large;
+            font-size: x-large;
             margin: 10px;
         }
-       
+
         .container {
             width: 1112px;
             height: 1050px;
@@ -18,6 +19,7 @@
             margin: 0px;
             position: relative;
         }
+
             .container > .crop {
                 position: absolute;
                 left: 0%;
@@ -25,12 +27,8 @@
                 top: 0%;
                 margin: 0px;
                 bottom: 10%;
-                min-height:600px;
+                min-height: 600px;
             }
-
-            
-       
-
     </style>
 </head>
 <body>
@@ -41,15 +39,25 @@
         <img class="crop" src="./Imagenes/q291.jpg" />
     </div>
 
-    <nav id="mainmenu" class="page-nav" style="display:none">
-
+    <nav id="mainmenu" class="page-nav">
         <div id="navlist" class="containers">
             <a href="index.html">Home</a>
             <a href="register.html">Register</a>
+            <a href="about.html">About</a>
+            <a href="about.html">otro</a>
+        </div>
+        <a href="about.html">otro</a>
+        <a href="about.html">otro</a>
+        <div id="navlist" class="containers">
+            <a href="index.html">Home</a>
+            <a href="register.html">Register</a>
+            <a href="about.html">About</a>
+            <a href="about.html">otro</a>
         </div>
     </nav>
+
     <xmp id="resp" style="display:none">
-        div a:last-child # ~ a{
+        div a:last-child  ~ a{
             background-color: yellow;
         }
         No 
@@ -57,15 +65,12 @@
     <button onclick="respuesta()">Respuesta</button>
 
     <script>
-        var contenedor = document.getElementById("contImagen");
         var resp = document.getElementById("resp");
-        var menu = document.getElementById("mainmenu");
 
         var respuesta = () => {
-            menu.style.display = "inherit";
             resp.style.display = "inherit";
-            $("div a:last-child # ~ a").css("background-color", "yellow")
-        }
+            $("div ~ a").css("background-color", "yellow");
+        };
 
     </script>
 </body>
